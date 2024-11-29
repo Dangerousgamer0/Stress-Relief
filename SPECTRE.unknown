@@ -1,0 +1,59 @@
+// 1. Bubble Pop
+function startBubblePop() {
+    const gameContainer = document.getElementById('game-container');
+    gameContainer.innerHTML = '';
+    for (let i = 0; i < 10; i++) {
+      const bubble = document.createElement('div');
+      bubble.style.position = 'absolute';
+      bubble.style.width = '50px';
+      bubble.style.height = '50px';
+      bubble.style.background = '#007acc';
+      bubble.style.borderRadius = '50%';
+      bubble.style.left = `${Math.random() * 250}px`;
+      bubble.style.top = `${Math.random() * 250}px`;
+      bubble.style.cursor = 'pointer';
+      bubble.onclick = () => bubble.remove();
+      gameContainer.appendChild(bubble);
+    }
+  }
+  
+  // 2. Catch the Smiley
+  function startCatchSmiley() {
+    const gameContainer = document.getElementById('game-container');
+    gameContainer.innerHTML = '';
+    const smiley = document.createElement('div');
+    smiley.textContent = '😊';
+    smiley.style.position = 'absolute';
+    smiley.style.fontSize = '30px';
+    smiley.style.cursor = 'pointer';
+    smiley.style.left = `${Math.random() * 250}px`;
+    smiley.style.top = `${Math.random() * 250}px`;
+    smiley.onclick = () => alert('Caught the Smiley!');
+    setInterval(() => {
+      smiley.style.left = `${Math.random() * 250}px`;
+      smiley.style.top = `${Math.random() * 250}px`;
+    }, 1000);
+    gameContainer.appendChild(smiley);
+  }
+  
+  // 3. Color Splash
+  function startColorSplash() {
+    const gameContainer = document.getElementById('game-container');
+    gameContainer.innerHTML = '';
+    gameContainer.style.cursor = 'crosshair';
+    gameContainer.onclick = (e) => {
+      const splash = document.createElement('div');
+      splash.style.position = 'absolute';
+      splash.style.width = '20px';
+      splash.style.height = '20px';
+      splash.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      splash.style.borderRadius = '50%';
+      splash.style.left = `${e.offsetX}px`;
+      splash.style.top = `${e.offsetY}px`;
+      gameContainer.appendChild(splash);
+    };
+  }
+  
+  // 4. Memory Tiles, 5. Calm Counter, 6. Shape Matcher, etc.
+  // Implement each game similarly.
+  
